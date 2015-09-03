@@ -1,11 +1,3 @@
-# Methods
----------
-
-def pairs
-  if hard_pair.include?([sum, dealer_card])
-    "do something"
-  elsif
-end
 
 
 # User Input Phase
@@ -42,16 +34,22 @@ puts "Finally, name your second card. (Ace= A)"
  end
 
 
-sum = (user_card1.to_i + user_card2.to_i)
+# Methods
+#---------
+
+def pairs
+  if user_card1 == user_card2
+    pairs
+end
 
 
 # Hard Hash Arrays-----
 
 (2..11).each do |i|
-  five_array << [5, i]
-  six_array << [6, i]
-  seven_array << [7, i]
-  eleven_array << [11, i]
+  five_array = Array.new << [5, i]
+  six_array = Array.new << [6, i]
+  seven_array = Array.new << [7, i]
+  eleven_array = Array.new << [11, i]
 end
 
 (2..9).each do |i|
@@ -59,59 +57,59 @@ end
 end
 
 (7..11).each do |i|
-  eight_array << [8, i]
-  nine_array << [9, i]
-  twelve_array << [12, i]
-  thriteen_array << [13, i]
-  fourteen_array << [14, i]
-  fifteen_array << [15, i]
-  sixteen_array << [16, i]
+  eight_array = Array.new << [8, i]
+  nine_array = Array.new << [9, i]
+  twelve_array = Array.new << [12, i]
+  thriteen_array = Array.new << [13, i]
+  fourteen_array = Array.new  << [14, i]
+  fifteen_array = Array.new << [15, i]
+  sixteen_array = Array.new << [16, i]
 end
 
   (12..21).each do |i|
-    seventeen_array << [17, i]
-    eighteen_array << [18, i]
-    nineteen_array << [19, i]
-    twenty_array << [20, i]
-    twentyone_array << [21, i]
+    seventeen_array = Array.new << [17, i]
+    eighteen_array = Array.new << [18, i]
+    nineteen_array = Array.new << [19, i]
+    twenty_array = Array.new << [20, i]
+    twentyone_array Array.new << [21, i]
 end
 
 # Soft Hash Arrays-----
 
 (7..11).each do |i|
-  thirteen_soft_array << [13, i]
-  fourteen_soft_array << [14, i]
-  fifteen_soft_array << [15, i]
-  sixteen_soft_array << [16, i]
-  seventeen_soft_array << [17, i]
-  nineteen_soft_array << [19, i]
+  thirteen_soft_array = Array.new << [13, i]
+  fourteen_soft_array = Array.new << [14, i]
+  fifteen_soft_array = Array.new << [15, i]
+  sixteen_soft_array = Array.new <<[16, i]
+  seventeen_soft_array = Array.new << [17, i]
+  nineteen_soft_array = Array.new << [19, i]
 end
 
 (2..11).each do |i|
-  twenty_soft_array << [20, i]
-  twentyone_soft_array << [21, i]
+  twenty_soft_array = Array.new << [20, i]
+  twentyone_soft_array = Array.new << [21, i]
 end
 
 # Pair Hash Arrays-----
 
 (2..7).each do |i|
-  four_pair_array << [4, i]
-  twelve_pair_array << [12, i]
+  four_pair_array = Array.new << [4, i]
+  twelve_pair_array = Array.new << [12, i]
 end
 
 (2..9).each do |i|
-  ten_pair_array << [10, i]
+  ten_pair_array = Array.new << [10, i]
 end
 
 (2..8).each do |i|
-  six_pair_array << [6, i]
-  fourteen_pair_array << [14, i]
+  six_pair_array = Array.new << [6, i]
+  fourteen_pair_array = Array.new << [14, i]
 end
 
 (2..11).each do |i|
-  sixteen_pair_array << [16, i]
-  twenty_pair_array << [20, i]
-  twentytwo_pair_array << [22, i]
+  sixteen_pair_array = Array.new << [16, i]
+  twenty_pair_array = Array.new << [20, i]
+  twentytwo_pair_array = Array.new << [22, i]
 end
 
 
@@ -121,9 +119,11 @@ end
 
 # If Hard Hand, Possible Options Are...
 #--------------------------------------
+
+
 hard = { hard_hit=> "Hit", hard_stay_hash => "Stay", hard_doubledownhit => "Double if possible, otherwise hit"}
 
-hard_hit = [five_array, six_array, seven_array, eight_array, nine_array [10,10], [10,11], [12,2], [12,3], twelve_array,
+hard_hit = [five_array, six_array, seven_array, eight_array, nine_array, [10,10], [10,11], [12,2], [12,3], twelve_array,
             thirteen_array, fourteen_array, fifteen_array, sixteen_array]
 
 hard_doublehit = [[8,5], [8,6], [9,2], [9,3], [9,4], [9,5], [9,6], eleven_array, ten_array]
@@ -157,7 +157,7 @@ soft_doubledownstay = [[18,3], [18,4], [18,5], [18,6], [19,6]]
 #____________________________________________________________________________________________________
 
 # If Pair, Possible Options Are...
-----------------------------------
+#----------------------------------
 
 pair = { pair_hit=> "Hit", pair_stay => "Stay", pair_doubledownhit => "Double if possible, otherwise hit",
   pair_split => "Split"}
@@ -165,7 +165,7 @@ pair = { pair_hit=> "Hit", pair_stay => "Stay", pair_doubledownhit => "Double if
 pair_hit = [[4,8], [4,9], [4,10], [4,11], [6,9], [6,10], [6,11], [8,2], [8,3], [8,7], [8,8], [8,9], [8,10], [8,11],
             [10,10], [10,11], [12,8], [12,9], [12,10], [12,11], [14,9], [14,11]]
 
-pair_stay = [[14,10], [18,7], [18,10], [18,11] twenty_soft_array]
+pair_stay = [[14,10], [18,7], [18,10], [18,11], twenty_soft_array]
 
 pair_doubledownhit = [ten_pair_array]
 
@@ -174,6 +174,7 @@ pair_split = [four_pair_array, six_pair_array, twelve_pair_array, four_pair_arra
 
 #____________________________________________________________________________________________________
 
+
 if user_card1 == user_card2
   pairs
 elsif hard_doublehit.include?([sum, dealer_card])
@@ -181,11 +182,12 @@ elsif hard_doublehit.include?([sum, dealer_card])
 elsif hardhit.include?([sum, dealer_card])
   puts "Hit"
 elsif pairhit.include?([sum, deal])
-end
+  puts "Stay"
 end
 
-# Results
-#puts "The Dealer's card is  #{dealer_card}"
-#puts "Your first card was  #{user_card1}"
-#puts "Your second card was  #{user_card2}"
-#puts "The sum of your cards is #{sum}"
+
+sum = (user_card1.to_i + user_card2.to_i)
+
+
+
+end
