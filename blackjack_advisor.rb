@@ -1,3 +1,13 @@
+# Methods
+---------
+
+def pairs
+  if hard_pair.include?([sum, dealer_card])
+    "do something"
+  elsif
+end
+
+
 # User Input Phase
 puts "Hello! This program is designed to give you advise about your blackjack hand! (Trust me, I'm a computer. I'm smarter than you!)"
 
@@ -34,226 +44,148 @@ puts "Finally, name your second card. (Ace= A)"
 
 sum = (user_card1.to_i + user_card2.to_i)
 
-hard = Hash.new
-  hard_hit_hash = Hash.new("Hit")
-  hard_stay_hash = Hash.new("Stay")
-  hard_doubledownhit_hash = Hash.new("Double if possible, otherwise hit")
 
-(5..9).each do |i|
-  hard_hit_hash[i] = Hash.new("Hit")
+# Hard Hash Arrays-----
+
+(2..11).each do |i|
+  five_array << [5, i]
+  six_array << [6, i]
+  seven_array << [7, i]
+  eleven_array << [11, i]
 end
 
-
-  hard_hit_hash[8][5] = Hash.new("Double if possible, otherwise hit")
-  hard_hit_hash[8][6] = Hash.new("Double if possible, otherwise hit")
-  hard_hit_hash[9][2] = Hash.new("Double if possible, otherwise hit")
-  hard_hit_hash[9][3] = Hash.new("Double if possible, otherwise hit")
-  hard_hit_hash[9][4] = Hash.new("Double if possible, otherwise hit")
-  hard_hit_hash[9][5] = Hash.new("Double if possible, otherwise hit")
-  hard_hit_hash[9][6] = Hash.new("Double if possible, otherwise hit")
-
-(10..11).each do |i|
-  hard_hit_hash[i] = Hash.new("Double if possible, otherwise hit")
+(2..9).each do |i|
+  ten_array << [10, i]
 end
 
-  hard_hit_hash[10][10] = Hash.new("Hit")
-  hard_hit_hash[10][11] = Hash.new("Hit")
+(7..11).each do |i|
+  eight_array << [8, i]
+  nine_array << [9, i]
+  twelve_array << [12, i]
+  thriteen_array << [13, i]
+  fourteen_array << [14, i]
+  fifteen_array << [15, i]
+  sixteen_array << [16, i]
+end
 
   (12..21).each do |i|
-    hard_hit_hash[i] = Hash.new("Stay")
+    seventeen_array << [17, i]
+    eighteen_array << [18, i]
+    nineteen_array << [19, i]
+    twenty_array << [20, i]
+    twentyone_array << [21, i]
 end
 
-    hard_hit_hash[12][2] = Hash.new("Hit")
-    hard_hit_hash[12][3] = Hash.new("Hit")
-    hard_hit_hash[12][7] = Hash.new("Hit")
-    hard_hit_hash[12][8] = Hash.new("Hit")
-    hard_hit_hash[12][9] = Hash.new("Hit")
-    hard_hit_hash[12][10] = Hash.new("Hit")
-    hard_hit_hash[12][11] = Hash.new("Hit")
+# Soft Hash Arrays-----
 
-    hard_hit_hash[13][7] = Hash.new("Hit")
-    hard_hit_hash[13][8] = Hash.new("Hit")
-    hard_hit_hash[13][9] = Hash.new("Hit")
-    hard_hit_hash[13][10] = Hash.new("Hit")
-    hard_hit_hash[13][11] = Hash.new("Hit")
-
-    hard_hit_hash[14][7] = Hash.new("Hit")
-    hard_hit_hash[14][8] = Hash.new("Hit")
-    hard_hit_hash[14][9] = Hash.new("Hit")
-    hard_hit_hash[14][10] = Hash.new("Hit")
-    hard_hit_hash[14][11] = Hash.new("Hit")
-
-    hard_hit_hash[15][7] = Hash.new("Hit")
-    hard_hit_hash[15][8] = Hash.new("Hit")
-    hard_hit_hash[15][9] = Hash.new("Hit")
-    hard_hit_hash[15][10] = Hash.new("Hit")
-    hard_hit_hash[15][11] = Hash.new("Hit")
-
-    hard_hit_hash[16][7] = Hash.new("Hit")
-    hard_hit_hash[16][8] = Hash.new("Hit")
-    hard_hit_hash[16][9] = Hash.new("Hit")
-    hard_hit_hash[16][10] = Hash.new("Hit")
-    hard_hit_hash[16][11] = Hash.new("Hit")
-
-soft = Hash.new
-  soft_hit_hash = Hash.new("Hit")
-  soft_stay_hash = Hash.new("Stay")
-  soft_doubledownhit_hash = Hash.new("Double if possible, otherwise hit")
-  soft_doubledownstay_hash = Hash.new("Double if possible, otherwise stay")
-
-  (13..17).each do |j|
-    soft_hit_hash[j] = Hash.new("Hit")
-  end
-
-  soft[13][4] = Hash.new("Double if possible, otherwise hit")
-  soft[13][5] = Hash.new("Double if possible, otherwise hit")
-  soft[13][6] = Hash.new("Double if possible, otherwise hit")
-
-  soft[14][4] = Hash.new("Double if possible, otherwise hit")
-  soft[14][5] = Hash.new("Double if possible, otherwise hit")
-  soft[14][6] = Hash.new("Double if possible, otherwise hit")
-
-  soft[15][4] = Hash.new("Double if possible, otherwise hit")
-  soft[15][5] = Hash.new("Double if possible, otherwise hit")
-  soft[15][6] = Hash.new("Double if possible, otherwise hit")
-
-  soft[16][4] = Hash.new("Double if possible, otherwise hit")
-  soft[16][5] = Hash.new("Double if possible, otherwise hit")
-  soft[16][6] = Hash.new("Double if possible, otherwise hit")
-
-  soft[17][2] = Hash.new("Double if possible, otherwise hit")
-  soft[17][3] = Hash.new("Double if possible, otherwise hit")
-  soft[17][4] = Hash.new("Double if possible, otherwise hit")
-  soft[17][5] = Hash.new("Double if possible, otherwise hit")
-  soft[17][6] = Hash.new("Double if possible, otherwise hit")
-
-  soft[18][2] = Hash.new("Stay")
-  soft[18][7] = Hash.new("Stay")
-  soft[18][8] = Hash.new("Stay")
-  soft[18][11] = Hash.new("Stay")
-
-
-  soft[18][3] = Hash.new("Double if possible, otherwise hit")
-  soft[18][4] = Hash.new("Double if possible, otherwise hit")
-  soft[18][5] = Hash.new("Double if possible, otherwise hit")
-  soft[18][6] = Hash.new("Double if possible, otherwise hit")
-
-  soft[19][2] = Hash.new("Stay")
-  soft[19][3] = Hash.new("Stay")
-  soft[19][4] = Hash.new("Stay")
-  soft[19][5] = Hash.new("Stay")
-  soft[19][7] = Hash.new("Stay")
-  soft[19][8] = Hash.new("Stay")
-  soft[19][9] = Hash.new("Stay")
-  soft[19][10] = Hash.new("Stay")
-  soft[19][11] = Hash.new("Stay")
-
-  soft[20][2] = Hash.new("Stay")
-  soft[20][3] = Hash.new("Stay")
-  soft[20][4] = Hash.new("Stay")
-  soft[20][5] = Hash.new("Stay")
-  soft[20][6] = Hash.new("Stay")
-  soft[20][7] = Hash.new("Stay")
-  soft[20][8] = Hash.new("Stay")
-  soft[20][9] = Hash.new("Stay")
-  soft[20][10] = Hash.new("Stay")
-  soft[20][11] = Hash.new("Stay")
-
-  soft[21][2] = Hash.new("Stay")
-  soft[21][3] = Hash.new("Stay")
-  soft[21][4] = Hash.new("Stay")
-  soft[21][5] = Hash.new("Stay")
-  soft[21][6] = Hash.new("Stay")
-  soft[21][7] = Hash.new("Stay")
-  soft[21][8] = Hash.new("Stay")
-  soft[21][9] = Hash.new("Stay")
-  soft[21][10] = Hash.new("Stay")
-  soft[21][11] = Hash.new("Stay")
-
-pair = Hash.new
-pair_split_hash = Hash.new("Split")
-pair_hit_hash = Hash.new("Hit")
-pair_doubledownhit_hash = Hash.new("Double if possible, otherwise hit")
-hard_stay_hash = Hash.new("Stay")
-
-(4..22).each do |k|
-pair_hit_hash[k] = Hash.new("Split")
+(7..11).each do |i|
+  thirteen_soft_array << [13, i]
+  fourteen_soft_array << [14, i]
+  fifteen_soft_array << [15, i]
+  sixteen_soft_array << [16, i]
+  seventeen_soft_array << [17, i]
+  nineteen_soft_array << [19, i]
 end
 
-  pair[4][8] = Hash.new("Hit")
-  pair[4][9] = Hash.new("Hit")
-  pair[4][10] = Hash.new("Hit")
-  pair[4][11] = Hash.new("Hit")
-
-  pair[6][9] = Hash.new("Hit")
-  pair[6][10] = Hash.new("Hit")
-  pair[6][11] = Hash.new("Hit")
-
-  pair[8][2] = Hash.new("Hit")
-  pair[8][3] = Hash.new("Hit")
-  pair[8][7] = Hash.new("Hit")
-  pair[8][8] = Hash.new("Hit")
-  pair[8][9] = Hash.new("Hit")
-  pair[8][10] = Hash.new("Hit")
-  pair[8][11] = Hash.new("Hit")
-
-  pair[10][2] = Hash.new("Double if possible, otherwise hit")
-  pair[10][3] = Hash.new("Double if possible, otherwise hit")
-  pair[10][4] = Hash.new("Double if possible, otherwise hit")
-  pair[10][5] = Hash.new("Double if possible, otherwise hit")
-  pair[10][6] = Hash.new("Double if possible, otherwise hit")
-  pair[10][7] = Hash.new("Double if possible, otherwise hit")
-  pair[10][8] = Hash.new("Double if possible, otherwise hit")
-  pair[10][9] = Hash.new("Double if possible, otherwise hit")
-  pair[10][10] = Hash.new("Hit")
-  pair[10][11] = Hash.new("Hit")
-
-  pair[12][8] = Hash.new("Hit")
-  pair[12][9] = Hash.new("Hit")
-  pair[12][10] = Hash.new("Hit")
-  pair[12][11] = Hash.new("Hit")
-
-  pair[14][9] = Hash.new("Hit")
-  pair[14][10] = Hash.new("Stay")
-  pair[14][11] = Hash.new("Hit")
-
-  pair[18][7] = Hash.new("Stay")
-  pair[18][10] = Hash.new("Stay")
-  pair[18][11] = Hash.new("Stay")
-
-  pair[20][2] = Hash.new("Split")
-  pair[20][3] = Hash.new("Split")
-  pair[20][4] = Hash.new("Split")
-  pair[20][5] = Hash.new("Split")
-  pair[20][6] = Hash.new("Split")
-  pair[20][7] = Hash.new("Split")
-  pair[20][8] = Hash.new("Split")
-  pair[20][9] = Hash.new("Split")
-  pair[20][10] = Hash.new("Split")
-  pair[20][11] = Hash.new("Split")
-
-if
-  user_card1 == user_card2
-  puts ""
-
-elsif
-  user_card2 =="A"
-  [soft]
-
-elsif
-  user_card1 == "A"
-  [soft]
-else
-
- hard
+(2..11).each do |i|
+  twenty_soft_array << [20, i]
+  twentyone_soft_array << [21, i]
 end
-# Lots of Hashes...
+
+# Pair Hash Arrays-----
+
+(2..7).each do |i|
+  four_pair_array << [4, i]
+  twelve_pair_array << [12, i]
+end
+
+(2..9).each do |i|
+  ten_pair_array << [10, i]
+end
+
+(2..8).each do |i|
+  six_pair_array << [6, i]
+  fourteen_pair_array << [14, i]
+end
+
+(2..11).each do |i|
+  sixteen_pair_array << [16, i]
+  twenty_pair_array << [20, i]
+  twentytwo_pair_array << [22, i]
+end
 
 
 
+
+#______________________________________________________________________________________________________
+
+# If Hard Hand, Possible Options Are...
+#--------------------------------------
+hard = { hard_hit=> "Hit", hard_stay_hash => "Stay", hard_doubledownhit => "Double if possible, otherwise hit"}
+
+hard_hit = [five_array, six_array, seven_array, eight_array, nine_array [10,10], [10,11], [12,2], [12,3], twelve_array,
+            thirteen_array, fourteen_array, fifteen_array, sixteen_array]
+
+hard_doublehit = [[8,5], [8,6], [9,2], [9,3], [9,4], [9,5], [9,6], eleven_array, ten_array]
+
+hard_stay = [seventeen_array, eighteen_array, nineteen_array, twenty_array, twentyone_array,
+                             [12,4], [12,5], [12,6],
+             [13,2], [13,3], [13,4], [13,5], [13,6],
+             [14,2], [14,3], [14,4], [14,5], [14,6],
+             [15,2], [15,3], [15,4], [15,5], [15,6],
+             [16,2], [16,3], [16,4], [16,5], [16,6], ]
+
+# ____________________________________________________________________________________________________
+
+# If Soft Hand, Possible Options Are...
+#--------------------------------------
+
+soft = { soft_hit=> "Hit", soft_stay => "Stay", soft_doubledownhit => "Double if possible, otherwise hit",
+  soft_doubledownstay => "Double if Possible, otherwise stay"}
+
+soft_hit = [thirteen_soft_array, fourteen_soft_array, fifteen_soft_array, sixteen_soft_array, seventeen_soft_array,
+          [18,9], [18,10], [13,2], [13,3], [14,2], [14,3], [15,2], [15,3], [16,2], [16,3]]
+
+soft_stay = [nineteen_soft_array, twenty_soft_array, twentyone_soft_array,
+            [19,2], [19,3], [19,4], [19,5], [18,2], [18,7], [18,8], [18,11]]
+
+soft_doubledownhit = [[13,4], [13,5], [13,6], [14,4], [14,5], [14,6], [15,4], [15,5], [15,6],
+                      [17,2], [17,3], [17,4], [17,5], [17,6]]
+
+soft_doubledownstay = [[18,3], [18,4], [18,5], [18,6], [19,6]]
+
+#____________________________________________________________________________________________________
+
+# If Pair, Possible Options Are...
+----------------------------------
+
+pair = { pair_hit=> "Hit", pair_stay => "Stay", pair_doubledownhit => "Double if possible, otherwise hit",
+  pair_split => "Split"}
+
+pair_hit = [[4,8], [4,9], [4,10], [4,11], [6,9], [6,10], [6,11], [8,2], [8,3], [8,7], [8,8], [8,9], [8,10], [8,11],
+            [10,10], [10,11], [12,8], [12,9], [12,10], [12,11], [14,9], [14,11]]
+
+pair_stay = [[14,10], [18,7], [18,10], [18,11] twenty_soft_array]
+
+pair_doubledownhit = [ten_pair_array]
+
+pair_split = [four_pair_array, six_pair_array, twelve_pair_array, four_pair_array, sixteen_pair_array, twentytwo_pair_array,
+             [18,2], [18,3], [18,4], [18,5], [18,6], [18,8], [18,9]]
+
+#____________________________________________________________________________________________________
+
+if user_card1 == user_card2
+  pairs
+elsif hard_doublehit.include?([sum, dealer_card])
+  puts "Double if possible, otherwise hit"
+elsif hardhit.include?([sum, dealer_card])
+  puts "Hit"
+elsif pairhit.include?([sum, deal])
+end
+end
 
 # Results
-puts "The Dealer's card is  #{dealer_card}"
-puts "Your first card was  #{user_card1}"
-puts "Your second card was  #{user_card2}"
-puts "The sum of your cards is #{sum}"
+#puts "The Dealer's card is  #{dealer_card}"
+#puts "Your first card was  #{user_card1}"
+#puts "Your second card was  #{user_card2}"
+#puts "The sum of your cards is #{sum}"
